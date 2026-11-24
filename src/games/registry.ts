@@ -1,12 +1,13 @@
 import type { GameTypeId } from '../core/types'
 import { dutchBlitz } from './dutchBlitz'
+import { fiveHundred } from './fiveHundred'
 import { wildRummy } from './wildRummy'
 import type { ComingSoonGame, GameDefinition } from './types'
 
 export const GAMES: (GameDefinition | ComingSoonGame)[] = [
   dutchBlitz,
   wildRummy,
-  { id: 'five-hundred', name: '500', tagline: 'Coming soon', comingSoon: true },
+  fiveHundred,
 ]
 
 export function getGame(id: GameTypeId | string): GameDefinition | undefined {

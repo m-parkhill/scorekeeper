@@ -375,3 +375,41 @@ tr.tappable:active { background: var(--surface-2); }
 }
 .hand-strip li.done { background: var(--accent-soft); color: var(--accent); }
 .hand-strip li.current { background: var(--wild); color: #fff; }
+
+/* ---------- 500 ---------- */
+.toggle { display: flex; gap: 12px; align-items: flex-start; cursor: pointer; }
+.toggle input { width: 22px; height: 22px; margin: 2px 0 0; accent-color: var(--accent); flex: none; }
+.teams-preview { display: grid; gap: 4px; }
+.team-line { font-weight: 600; }
+.team-line .muted { display: inline-block; min-width: 4.5em; font-weight: 500; }
+.team-hint { margin-top: 8px; }
+
+.player-chip { display: inline-flex; align-items: center; gap: 6px; }
+.player-chip.selected { background: var(--player); border-color: var(--player); color: #fff; }
+.player-chip.selected .dot { background: #fff; }
+
+.bid-pill { padding: 4px 12px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); font-size: 0.95rem; }
+
+.bid-table { display: grid; grid-template-columns: 1.6em repeat(5, minmax(0, 1fr)); gap: 5px; align-items: center; }
+.bid-head { text-align: center; font-size: 1.25rem; font-weight: 700; }
+.bid-head.suit-NT { font-size: 0.95rem; }
+.suit-D, .suit-H { color: var(--neg); }
+.bid-level { font-weight: 800; color: var(--muted); text-align: center; }
+.bid-cell {
+  min-height: 46px; padding: 0;
+  border-radius: 10px; border: 1px solid var(--border); background: var(--bg);
+  font-weight: 700; font-variant-numeric: tabular-nums;
+}
+.bid-cell.selected { background: var(--accent); border-color: var(--accent); color: var(--accent-text); }
+.bid-cell.wide { flex: 1; padding: 0 10px; }
+.bid-val { font-weight: 500; opacity: 0.75; margin-left: 4px; }
+.no-trick-row { display: flex; gap: 6px; margin-top: 8px; }
+
+.chip.makes:not(.selected) { border-color: var(--pos); }
+
+.preview { display: grid; gap: 6px; }
+.preview-line { display: flex; align-items: center; gap: 8px; }
+.preview-line .name { flex: 1; font-weight: 600; }
+
+.progress-fill.negative { background: var(--neg); }
+.bid-cell-row { white-space: nowrap; font-weight: 700 !important; color: var(--text) !important; }

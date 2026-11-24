@@ -28,7 +28,8 @@ export function NewGame({ def }: { def: GameDefinition }) {
   const suggestions = recent.filter((n) => !used.has(n.toLowerCase()))
   const named = rows.filter((r) => r.name.trim())
   const dupes = named.length !== new Set(named.map((r) => r.name.trim().toLowerCase())).size
-  const canStart = named.length >= def.minPlayers && named.length <= def.maxPlayers && !dupes
+  const countError = named.length >= def.minPlayers ? (def.playerCountError?.(named.length) ?? null) : null
+  const canStart = named.length >= def.minPlayers && named.length <= def.maxPlayers && !dupes && !countError
 
   const addRow = (name = '') => {
     if (rows.length >= def.maxPlayers) return
@@ -120,12 +121,13 @@ export function NewGame({ def }: { def: GameDefinition }) {
           </div>
         )}
         {dupes && <p className="hint warn">Two players have the same name.</p>}
+        {countError && <p className="hint warn">{countError}</p>}
       </section>
 
       {def.SettingsForm && (
         <section className="card">
           <h2 className="section-title">Settings</h2>
-          <def.SettingsForm value={settings} onChange={setSettings} />
+          <def.SettingsForm value={settings} onChange={setSettings} playerNames={named.map((r) => r.name.trim())} />
         </section>
       )}
 

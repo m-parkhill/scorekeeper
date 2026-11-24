@@ -19,6 +19,8 @@ export interface PlayProps<S, R> {
 export interface SettingsFormProps<S> {
   value: S
   onChange(next: S): void
+  /** Names entered so far, in seating order (blank rows excluded). */
+  playerNames: string[]
 }
 
 /**
@@ -31,6 +33,8 @@ export interface GameDefinition<S = any, R = any> {
   tagline: string
   minPlayers: number
   maxPlayers: number
+  /** Extra player-count rule beyond min/max; returns a message if unsupported. */
+  playerCountError?(count: number): string | null
   defaultSettings: S
   SettingsForm?: ComponentType<SettingsFormProps<S>>
   Play: ComponentType<PlayProps<S, R>>
