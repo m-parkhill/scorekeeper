@@ -1,10 +1,11 @@
 import type { GameTypeId } from '../core/types'
 import { dutchBlitz } from './dutchBlitz'
+import { wildRummy } from './wildRummy'
 import type { ComingSoonGame, GameDefinition } from './types'
 
 export const GAMES: (GameDefinition | ComingSoonGame)[] = [
   dutchBlitz,
-  { id: 'wild-rummy', name: 'Wild Rummy', tagline: 'Coming soon', comingSoon: true },
+  wildRummy,
   { id: 'five-hundred', name: '500', tagline: 'Coming soon', comingSoon: true },
 ]
 
